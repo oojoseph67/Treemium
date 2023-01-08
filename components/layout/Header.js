@@ -55,32 +55,44 @@ function Header({
 
      // network check
     async function networkCheck() {
-        if(chain == "0x1" || chain == "0x38" || chain == "0x89") {
+        // if(chain == "0x1" || chain == "0x38" || chain == "0x89") {
+        //     if(chain == "0x1") {
+        //         switchNetwork(ChainId.Mainnet)
+        //         setExplorer(process.env.NEXT_PUBLIC_EXPLORER_ETH)
+        //         setCurrency("ETH")
+        //         const nativeContractThird = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" // mainnet weth
+        //         setNativeContractThird(nativeContractThird)
+        //         // setHeaderChain("0x1")
+        //     } else if(chain == "0x38") {
+        //         switchNetwork(ChainId.BinanceSmartChainMainnet)
+        //         setExplorer(process.env.NEXT_PUBLIC_EXPLORER_BSC)
+        //         setCurrency("BNB")
+        //         const nativeContractThird = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c" // mainnet wbnb
+        //         setNativeContractThird(nativeContractThird)
+        //         // setHeaderChain("0x38")
+        //     } else if(chain == "0x89") {
+        //         switchNetwork(ChainId.Polygon)
+        //         setExplorer(process.env.NEXT_PUBLIC_EXPLORER_POLYGON)
+        //         setCurrency("MATIC")
+        //         const nativeContractThird = "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270" // mainnet wmatic
+        //         setNativeContractThird(nativeContractThird)
+        //         // setHeaderChain("0x89")
+        //     }
+        // } else {
+        //     switchNetwork(ChainId.BinanceSmartChainMainnet)
+        // }
             if(chain == "0x1") {
-                switchNetwork(ChainId.Mainnet)
-                setExplorer(process.env.NEXT_PUBLIC_EXPLORER_ETH)
-                setCurrency("ETH")
-                const nativeContractThird = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" // mainnet weth
-                setNativeContractThird(nativeContractThird)
-                // setHeaderChain("0x1")
-            } else if(chain == "0x38") {
                 switchNetwork(ChainId.BinanceSmartChainMainnet)
                 setExplorer(process.env.NEXT_PUBLIC_EXPLORER_BSC)
                 setCurrency("BNB")
                 const nativeContractThird = "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c" // mainnet wbnb
                 setNativeContractThird(nativeContractThird)
-                // setHeaderChain("0x38")
-            } else if(chain == "0x89") {
-                switchNetwork(ChainId.Polygon)
-                setExplorer(process.env.NEXT_PUBLIC_EXPLORER_POLYGON)
-                setCurrency("MATIC")
-                const nativeContractThird = "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270" // mainnet wmatic
-                setNativeContractThird(nativeContractThird)
-                // setHeaderChain("0x89")
+                // setHeaderChain("0x1")
             }
-        } else {
-            switchNetwork(ChainId.Mainnet)
-        }
+            
+        // } else {
+        //     switchNetwork(ChainId.BinanceSmartChainMainnet)
+        // }
     }
 
     const handleNetworkChange = event => {

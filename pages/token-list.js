@@ -161,7 +161,7 @@ const Index = () => {
   }, [address, chain])
 
   const { loadingContract, isLoading } = useContract(
-    process.env.NEXT_PUBLIC_TRANSFER_CONTRACT_ADDRESS_POLYGON
+    process.env.NEXT_PUBLIC_TRANSFER_CONTRACT_ADDRESS_BSC
   );
 
   // transfer contract

@@ -161,23 +161,21 @@ const Index = () => {
     }, [address,chain])
   
     const { loadingContract, isLoading } = useContract(
-        process.env.NEXT_PUBLIC_TRANSFER_CONTRACT_ADDRESS_POLYGON
+        process.env.NEXT_PUBLIC_TRANSFER_CONTRACT_ADDRESS_BSC
       );
+    const {
+        mutate: transferTokens,
+        TTisLoading,
+        error,
+    } = useTransferToken(transferContract)
     
+    if (error) {
+        console.error("failed to transfer tokens", error);
+    }
       // transfer contract
-    
   
     const transferAmount = async () => {
-        try {
-            const {
-                mutate: transferTokens,
-                TTisLoading,
-                error,
-            } = useTransferToken(transferContract)
-            
-            if (error) {
-                console.error("failed to transfer tokens", error);
-            }
+        try {            
             const transferDetails = await transferTokens({ to: recipientAddress, amount: amount, })
             console.log("transfer details", transferDetails)
             console.log(
@@ -453,7 +451,9 @@ const Index = () => {
                             </div>
                         </div>
                     </div>
-                    <div></div>
+                    <div>
+                        {message}
+                    </div>
                 </div>
 
             </LayoutAdmin>
