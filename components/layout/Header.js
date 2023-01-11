@@ -31,10 +31,10 @@ function Header({
     // console.log("chain", chain);
 
     const { selectedChain, setSelectedChain } = useContext(ChainContext);
-    if (selectedChain == "56") {
-        console.log("checking selected chain outside handle bsc bsc")
-        setChain("0x38")
-    }
+    // if (selectedChain == "56") {
+    //     console.log("checking selected chain outside handle bsc bsc")
+    //     setChain("0x38")
+    // }
 
     useEffect(() => {
         networkCheck();
