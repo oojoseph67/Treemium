@@ -62,7 +62,7 @@ const Index = () => {
     // const [transferContract, setTransferContract] = useState("")
     const [customTokenDetails,setCustomTokenDetails] = useState("")
     const [message, setMessage] = useState("")
-    const [errorMessage, setErrorMessage] = useStaate("")
+    const [errorMessage, setErrorMessage] = useState("")
     const [showRecentTx, setShowRecentTx] = useState(false);
     const [recentTx, setRecentTx] = useState({
       txhash: "",
