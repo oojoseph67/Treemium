@@ -16,7 +16,7 @@ const Bottom = () => {
                                 />
 
                                 <p>
-                                    Treemium is a unique and beautiful
+                                    SharkLock is a unique and beautiful
                                     collection of UI elements that are all
                                     flexible and modular. A complete and
                                     customizable solution to building the

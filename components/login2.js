@@ -9,8 +9,8 @@ const Index = () => {
                 <div class="container h-100">
                     <div class="row justify-content-center h-100 align-items-center">
                         <div class="col-xl-2 col-md-6">
-                            <div class="mini-logo text-center my-5">
-                                <Link href="/landing"><img src="./images/logo.png" alt="" /></Link>
+                            <div class="container mt-5">
+                                <Link href="/"><img class="img-fluid" width="1100" height="500" src="./images/logo-shark.png" alt="" /></Link>
                             </div>
                             <div class="text-center mt-4">
                                 {/* <button

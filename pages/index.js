@@ -28,7 +28,6 @@ const { default: Moralis } = require("moralis");
 const Index = ({ marketDataTop3 }) => {
     const apiKey = process.env.NEXT_PUBLIC_MORALIS_API_KEY
 
-//   const [headerChain, setHeaderChain] = useState("0x1")
   const [chain, setChain] = useState("0x38");
   const [nativeBalance, setNativeBalance] = useState(0)
   const [nativePrice, setNativePrice] = useState(0)
@@ -108,7 +107,6 @@ const Index = ({ marketDataTop3 }) => {
   const nativeDecimalsThird = nativeToken.data?.decimals;
   const [nativeContractThird, setNativeContractThird] = useState("")
 
-//   console.log("headerChain", headerChain)
   console.info("nativeToken", nativeToken);
   // console.log("marketData", marketData)
   // console.log("address", address) 
@@ -194,6 +192,8 @@ const Index = ({ marketDataTop3 }) => {
   }
 
 
+  
+  console.log("chainId index above tokenBalance", chain)
   // get wallet tokens and value
   async function getTokenBalances() {
     try {
@@ -398,7 +398,7 @@ const Index = ({ marketDataTop3 }) => {
   async function get1inchSwap() {
     try {
       const tx = await axios.get(`
-        https://api.1inch.io/v5.0/1/swap?fromTokenAddress=${fromToken}&toTokenAddress=${toToken}&amount=${swapBalance}&fromAddress=${address}&slippage=5
+        https://api.1inch.io/v5.0/56/swap?fromTokenAddress=${fromToken}&toTokenAddress=${toToken}&amount=${swapBalance}&fromAddress=${address}&slippage=5
       `)
       console.log("swap data", tx.data)
       setTo(tx.data.tx.to) 
@@ -592,8 +592,6 @@ const Index = ({ marketDataTop3 }) => {
                 setExplorer={setExplorer}
                 setCurrency={setCurrency}
                 setNativeContractThird={setNativeContractThird}
-                // headerChain={headerChain}
-                // setHeaderChain={setHeaderChain}
             pageClass={"admin"}
                 pageTitle="">
                 <div class="row">
@@ -796,7 +794,7 @@ const Index = ({ marketDataTop3 }) => {
                             <div class="col-xl-6 col-lg-12 col-xxl-4">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Exchange {chain}</h4>
+                                        <h4 class="card-title">Exchange</h4>
                                     </div>
                                     <div class="card-body">
                                         <div class="buy-sell-widget">

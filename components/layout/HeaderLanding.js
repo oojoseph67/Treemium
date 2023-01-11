@@ -16,7 +16,7 @@ function HeaderLanding() {
                                 <nav class="navbar navbar-expand-lg navbar-light px-0">
                                     <Link href="/" class="navbar-brand">
                                         <img src="/images/logo.png" alt="" className="logo-primary" />
-                                        <span>Treemium </span>
+                                        <span>SharkLock</span>
                                         {/* <img src="/images/logow.png" alt="" className="logo-white" /> */}
                                     </Link>
 

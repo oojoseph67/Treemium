@@ -9,8 +9,8 @@ function Sidebar() {
         <>
             <div className="sidebar">
                 <Link href="/" className="brand-logo">
-                    <img src="/images/logo.png" alt="" />
-                    <span>Defi Dashboard </span>
+                    <img src="/images/logo-shark-2.png" alt="" />
+                    <span>SharkLock Defi Dashboard </span>
 
                 </Link>
                 <div className="menu">

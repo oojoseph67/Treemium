@@ -19,8 +19,6 @@ const LayoutAdmin = ({
     setExplorer,
     setCurrency,
     setNativeContractThird,
-    // headerChain,
-    // setHeaderChain,
 }) => {
 
     const [height, sETHeight] = useState(null);
@@ -39,8 +37,6 @@ const LayoutAdmin = ({
                     setExplorer={setExplorer}
                     setCurrency={setCurrency}
                     setNativeContractThird={setNativeContractThird}
-                    // headerChain={headerChain}
-                    // setHeaderChain={setHeaderChain}
                 />
                 <Sidebar />
                 {/* {pageTitle && ( */}

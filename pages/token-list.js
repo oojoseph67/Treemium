@@ -28,7 +28,6 @@ const { default: Moralis } = require("moralis");
 const Index = () => {
     const apiKey = process.env.NEXT_PUBLIC_MORALIS_API_KEY
 
-//   const [headerChain, setHeaderChain] = useState("")
   const [chain, setChain] = useState("0x38");
   const [nativeBalance, setNativeBalance] = useState(0)
   const [nativePrice, setNativePrice] = useState(0)
@@ -288,8 +287,6 @@ const Index = () => {
                 setExplorer={setExplorer}
                 setCurrency={setCurrency}
                 setNativeContractThird={setNativeContractThird}
-                // headerChain={headerChain}
-                // setHeaderChain={setHeaderChain}
                 pageClass={"front"}
              >
                 <div class="row">

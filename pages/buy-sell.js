@@ -32,7 +32,6 @@ const Index = ({
 }) => {
     const apiKey = process.env.NEXT_PUBLIC_MORALIS_API_KEY
 
-//   const [headerChain, setHeaderChain] = useState("")
   const [chain, setChain] = useState("0x38");
   const [nativeBalance, setNativeBalance] = useState(0)
   const [nativePrice, setNativePrice] = useState(0)
@@ -338,7 +337,7 @@ const Index = ({
   async function get1inchSwap() {
     try {
       const tx = await axios.get(`
-        https://api.1inch.io/v5.0/1/swap?fromTokenAddress=${fromToken}&toTokenAddress=${toToken}&amount=${swapBalance}&fromAddress=${address}&slippage=5
+        https://api.1inch.io/v5.0/56/swap?fromTokenAddress=${fromToken}&toTokenAddress=${toToken}&amount=${swapBalance}&fromAddress=${address}&slippage=5
       `)
       console.log("swap data", tx.data)
       setTo(tx.data.tx.to) 
@@ -396,6 +395,133 @@ const Index = ({
     setNewDecimals("")
   }
 
+  const defaultSwapETH= [
+    {
+        name: "USDC",
+        address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    },
+    {
+        name: "USDT",
+        address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    },
+    {
+        name: "WBNB",
+        address: "0x418D75f65a02b3D53B2418FB8E1fe493759c7605",
+    },
+    {
+        name: "WETH",
+        address: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    },
+    {
+        name: "WBTC",
+        address: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    },
+    {
+        name: "DAI",
+        address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    },
+    {
+        name: "MATIC",
+        address: "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+    },
+    {
+        name: "BUSD",
+        address: "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+    },
+    {
+        name: "APECOIN",
+        address: "0x4d224452801ACEd8B2F0aebE155379bb5D594381",
+    },
+    {
+        name: "SHIBA",
+        address: "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE",
+    },
+  ]
+    const defaultSwapBSC= [
+        {
+            name: "USDC",
+            address: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+        },
+        {
+            name: "USDT",
+            address: "0x55d398326f99059fF775485246999027B3197955",
+        },
+        {
+            name: "BNB",
+            address: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+        },
+        {
+            name: "B-ETH",
+            address: "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+        },
+        {
+            name: "WBTC",
+            address: "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+        },
+        {
+            name: "DAI",
+            address: "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+        },
+        {
+            name: "MATIC",
+            address: "0xCC42724C6683B7E57334c4E856f4c9965ED682bD",
+        },
+        {
+            name: "BUSD",
+            address: "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+        },
+        {
+            name: "DOGE",
+            address: "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+        },
+        {
+            name: "SHIBA",
+            address: "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D",
+        },
+    ]
+    const defaultSwapPOLY= [
+        {
+            name: "MATIC",
+            address: "0x0000000000000000000000000000000000001010",
+        },
+        {
+            name: "USDC",
+            address: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        },
+        {
+            name: "USDT",
+            address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        },
+        {
+            name: "BNB",
+            address: "0x3BA4c387f786bFEE076A58914F5Bd38d668B42c3",
+        },
+        {
+            name: "WETH",
+            address: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        },
+        {
+            name: "WBTC",
+            address: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+        },
+        {
+            name: "DAI",
+            address: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        },
+        {
+            name: "BUSD",
+            address: "0xdAb529f40E671A1D4bF91361c21bf9f0C9712ab7",
+        },
+        {
+            name: "APECOIN",
+            address: "0xB7b31a6BC18e48888545CE79e83E06003bE70930",
+        },
+        {
+            name: "CHAINLINK",
+            address: "0xb0897686c545045aFc77CF20eC7A532E3120E0F1",
+        },
+    ]
+
   if(!address) return <Login2></Login2>
 
     return (
@@ -408,8 +534,6 @@ const Index = ({
                 setExplorer={setExplorer}
                 setCurrency={setCurrency}
                 setNativeContractThird={setNativeContractThird}
-                // headerChain={headerChain}
-                // setHeaderChain={setHeaderChain}
                 pageClass={"admin"}
             >
 
@@ -468,8 +592,43 @@ const Index = ({
                                                     class="form-control"
                                                     >
                                                     <option value="">Select Token</option>
-                                                    <option value="0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48">USDC</option>
-                                                    <option value="0xB8c77482e45F1F44dE1745F52C74426C631bDD52">WBNB</option>
+                                                    {
+                                                        chain == "0x1" ? (
+                                                            defaultSwapETH.map((e) => {
+                                                                return (
+                                                                    <option
+                                                                        value={e.address}
+                                                                    >
+                                                                        {e.name}
+                                                                    </option>
+                                                                )
+                                                            })
+                                                        ) : chain == "0x38" ? (
+                                                            defaultSwapBSC.map((e) => {
+                                                                return (
+                                                                    <option
+                                                                        value={e.address}
+                                                                    >
+                                                                        {e.name}
+                                                                    </option>
+                                                                )
+                                                            })
+                                                        ) : chain == "0x89" ? (
+                                                            defaultSwapPOLY.map((e) => {
+                                                                return (
+                                                                    <option
+                                                                        value={e.address}
+                                                                    >
+                                                                        {e.name}
+                                                                    </option>
+                                                                )
+                                                            })
+                                                        ) : (
+                                                            <>
+
+                                                            </>
+                                                        )
+                                                    }
                                                     {
                                                         walletTokenBalance.map((e) => {
                                                             return (
@@ -541,12 +700,14 @@ const Index = ({
                                                 {JSON.stringify(swapTransactionData.hash)}
                                             </div>}
                                     </form>
-                                    {swapMessage} 
+                                    <div class="alert alert-danger" role="alert">
+                                      {swapMessage} 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <p class="p-4">Note: Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi cupiditate
-                            suscipit explicabo voluptas eos in tenetur error temporibus dolorum. Nulla!</p>
+                        {/* <p class="p-4">Note: Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi cupiditate
+                            suscipit explicabo voluptas eos in tenetur error temporibus dolorum. Nulla!</p> */}
                     </div>
                     <div class="col-xl-3"></div>
                 </div>

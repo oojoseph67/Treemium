@@ -28,7 +28,6 @@ const { default: Moralis } = require("moralis");
 const Index = () => {
     const apiKey = process.env.NEXT_PUBLIC_MORALIS_API_KEY
 
-    // const [headerChain, setHeaderChain] = useState("")
     const [chain, setChain] = useState("0x38");
     const [nativeBalance, setNativeBalance] = useState(0)
     const [nativePrice, setNativePrice] = useState(0)
@@ -63,6 +62,7 @@ const Index = () => {
     // const [transferContract, setTransferContract] = useState("")
     const [customTokenDetails,setCustomTokenDetails] = useState("")
     const [message, setMessage] = useState("")
+    const [errorMessage, setErrorMessage] = useStaate("")
     const [showRecentTx, setShowRecentTx] = useState(false);
     const [recentTx, setRecentTx] = useState({
       txhash: "",
@@ -188,7 +188,8 @@ const Index = () => {
             setRecipientAddress("")
         } catch(error) {
             console.log("transfer error",error)
-            setMessage(error)
+            setErrorMessage(error)
+            // setMessage(error)
         }
     }
   
@@ -343,8 +344,6 @@ const Index = () => {
                 setExplorer={setExplorer}
                 setCurrency={setCurrency}
                 setNativeContractThird={setNativeContractThird}
-                // headerChain={headerChain}
-                // setHeaderChain={setHeaderChain}
                 pageClass={"front"}
              >
              <br/>
@@ -452,7 +451,13 @@ const Index = () => {
                         </div>
                     </div>
                     <div>
-                        {message}
+                        <div class="alert alert-success" role="alert">
+                          {message}
+                          {/* <a href="#" class="alert-link">an example link</a> */}
+                        </div>
+                        <div class="alert alert-danger" role="alert">
+                          {errorMessage}
+                        </div>
                     </div>
                 </div>
 
