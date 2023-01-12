@@ -954,7 +954,16 @@ const Index = ({ marketDataTop3 }) => {
                                                         {JSON.stringify(swapTransactionData.hash)}
                                                     </div>}
                                             </form>
-                                            {swapMessage} 
+                                            {
+                                                swapMessage != "" ? (
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {swapMessage}
+                                                        {/* <a href="#" class="alert-link">an example link</a> */}
+                                                    </div>
+                                                ) : (
+                                                    <></>
+                                                )
+                                            }
                                         </div>
                                     </div>
                                 </div>

@@ -108,23 +108,24 @@ const Index = () => {
     const nativeDecimalsThird = nativeToken.data?.decimals;
     const [nativeContractThird, setNativeContractThird] = useState("")
   
-    console.info("nativeToken", nativeToken);
+    // console.info("nativeToken", nativeToken);
     // console.log("marketData", marketData)
     // console.log("address", address) 
-    console.log("program", transferContract)
+    // console.log("program", transferContract)
     console.log("wallet token balance", walletTokenBalance)
-    console.log("newBalance",newBalance)
-    console.log("newSymbol",newSymbol)
-    console.log("newName",newName)
-    console.log("newDecimals",newDecimals)
-    console.log("newThumbnail",newThumbnail)
+    console.log("chain id transfer", chain)
+    // console.log("newBalance",newBalance)
+    // console.log("newSymbol",newSymbol)
+    // console.log("newName",newName)
+    // console.log("newDecimals",newDecimals)
+    // console.log("newThumbnail",newThumbnail)
   
-    console.log("swap error message: ", swapMessage)
-    console.log("recipientAddress", recipientAddress)
+    // console.log("swap error message: ", swapMessage)
+    // console.log("recipientAddress", recipientAddress)
     // console.log("nativePrice", nativePrice)
     // console.log("nativeBalance", nativeBalance)
     // console.log("total value", totalValue)
-    console.log("transfers", transfers)
+    // console.log("transfers", transfers)
     // const [provider, setProvider] = useState({})
   
     // useEffect(() => {
@@ -330,7 +331,6 @@ const Index = () => {
       }
     }
 
-    
     if (isLoading) return <Loading></Loading>
     if(!address) return <Login2></Login2>
     
@@ -449,15 +449,28 @@ const Index = () => {
                                 }
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="alert alert-success" role="alert">
-                          {message}
-                          {/* <a href="#" class="alert-link">an example link</a> */}
-                        </div>
-                        <div class="alert alert-danger" role="alert">
-                          {errorMessage}
-                        </div>
+                      <div>
+                          {
+                            message != "" ? (
+                                <div class="alert alert-success" role="alert">
+                                  {message}
+                                  {/* <a href="#" class="alert-link">an example link</a> */}
+                                </div>
+                            ) : (
+                              <></>
+                            )
+                          }
+                          {
+                            errorMessage != "" ? (
+                                <div class="alert alert-danger" role="alert">
+                                  {errorMessage}
+                                  {/* <a href="#" class="alert-link">an example link</a> */}
+                                </div>
+                            ) : (
+                              <></>
+                            )
+                          }
+                      </div>
                     </div>
                 </div>
 

@@ -700,9 +700,16 @@ const Index = ({
                                                 {JSON.stringify(swapTransactionData.hash)}
                                             </div>}
                                     </form>
-                                    <div class="alert alert-danger" role="alert">
-                                      {swapMessage} 
-                                    </div>
+                                    {
+                                      swapMessage != "" ? (
+                                          <div class="alert alert-danger" role="alert">
+                                            {swapMessage}
+                                            {/* <a href="#" class="alert-link">an example link</a> */}
+                                          </div>
+                                      ) : (
+                                        <></>
+                                      )
+                                    }
                                 </div>
                             </div>
                         </div>
