@@ -78,7 +78,7 @@ function Sidebar() {
                         <a href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
                     </div>
                     <div class="copy_right">
-                        © {new Date().getFullYear()} Quixlab
+                        © {new Date().getFullYear()} SharkLock
                     </div>
                 </div>
 
