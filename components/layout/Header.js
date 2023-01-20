@@ -119,7 +119,7 @@ function Header({
                                             onChange={handleNetworkChange}
                                             // onChange={(e) => setSelectedChain(parseInt(e.target.value))}
                                         >
-                                            {/* <option value={String(ChainId.Mainnet)}>ETH</option> */}
+                                            <option value={String(ChainId.Mainnet)}>ETH</option>
                                             <option selected value={String(ChainId.BinanceSmartChainMainnet)}>BSC</option>
                                         </select>
                                         <div class="profile_log dropdown">
