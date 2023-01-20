@@ -31,14 +31,14 @@ function Header({
     // console.log("chain", chain);
 
     const { selectedChain, setSelectedChain } = useContext(ChainContext);
-    // if (selectedChain == "56") {
-    //     console.log("checking selected chain outside handle bsc bsc")
-    //     setChain("0x38")
-    // }
+    if (selectedChain == "56") {
+        console.log("checking selected chain outside handle bsc bsc")
+        setChain("0x38")
+    }
 
     useEffect(() => {
         networkCheck();
-    }, [address, chain]);
+    }, [address, chain, selectedChain]);
 
      // network check
     async function networkCheck() {
@@ -79,16 +79,18 @@ function Header({
     }
 
     const handleNetworkChange = event => {
-        setSelectedChain(event.target.value)
-        if(event.target.value == "179") {
+        if(event.target.value == "179") {            
+            setSelectedChain(event.target.value)
             switchNetwork(ChainId.Polygon)
             setChain("0x89")
             console.log("checking handle polygon")
         } else if(event.target.value == "1") {
+            setSelectedChain(event.target.value)
             switchNetwork(ChainId.Mainnet)
             setChain("0x1")
             console.log("checking handle eth")
         } else if(event.target.value == "56") {
+           setSelectedChain(event.target.value)
            switchNetwork(ChainId.BinanceSmartChainMainnet)
            setChain("0x38")
            console.log("checking handle bsc")
@@ -119,8 +121,8 @@ function Header({
                                             onChange={handleNetworkChange}
                                             // onChange={(e) => setSelectedChain(parseInt(e.target.value))}
                                         >
-                                            <option value={String(ChainId.Mainnet)}>ETH</option>
                                             <option selected value={String(ChainId.BinanceSmartChainMainnet)}>BSC</option>
+                                            <option value={String(ChainId.Mainnet)}>ETH</option>
                                         </select>
                                         <div class="profile_log dropdown">
                                             <div class="user" onClick={toggleTrueFalse}>
