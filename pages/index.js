@@ -910,8 +910,8 @@ const Index = ({ marketDataTop3 }) => {
                                                             value={value}
                                                             type="number"
                                                             min={0}
-                                                            max={swapBalance}
-                                                            placeholder={swapBalance}
+                                                            max={newBalanceSwap}
+                                                            placeholder={newBalanceSwap}
                                                          />
                                                         <input 
                                                             value={
