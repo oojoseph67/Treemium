@@ -79,18 +79,16 @@ function Header({
     }
 
     const handleNetworkChange = event => {
-        if(event.target.value == "179") {            
-            setSelectedChain(event.target.value)
+        setSelectedChain(event.target.value)
+        if(event.target.value == "179") {
             switchNetwork(ChainId.Polygon)
             setChain("0x89")
             console.log("checking handle polygon")
         } else if(event.target.value == "1") {
-            setSelectedChain(event.target.value)
             switchNetwork(ChainId.Mainnet)
             setChain("0x1")
             console.log("checking handle eth")
         } else if(event.target.value == "56") {
-           setSelectedChain(event.target.value)
            switchNetwork(ChainId.BinanceSmartChainMainnet)
            setChain("0x38")
            console.log("checking handle bsc")
